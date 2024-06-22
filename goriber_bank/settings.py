@@ -3,7 +3,7 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 from pathlib import Path
-
+import dj_database_url
 SECRET_KEY = env("SECRET_KEY")
 
 
@@ -91,15 +91,24 @@ WSGI_APPLICATION = 'goriber_bank.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
+
+# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://mamar_bank_x82x_user:gO9bnAHrf9XQyfQjw2Qho3bA510XJ3nP@dpg-cprer7jv2p9s73a5m9h0-a.oregon-postgres.render.com/mamar_bank_x82x',
+        conn_max_age=600
+    )
 }
 
 # Password validation

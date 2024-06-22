@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure-+60$(fg3kv^al1uluj_a4wxeec_0we#k&6t+yz^i5irhjrl_1^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -106,8 +106,8 @@ WSGI_APPLICATION = 'goriber_bank.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://mamar_bank_x82x_user:gO9bnAHrf9XQyfQjw2Qho3bA510XJ3nP@dpg-cprer7jv2p9s73a5m9h0-a.oregon-postgres.render.com/mamar_bank_x82x',
-        conn_max_age=600
+        default='postgresql://mamar_bank_x82x_user:gO9bnAHrf9XQyfQjw2Qho3bA510XJ3nP@dpg-cprer7jv2p9s73a5m9h0-a/mamar_bank_x82x',
+      
     )
 }
 
